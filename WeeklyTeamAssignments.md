@@ -14,11 +14,13 @@
     <th> Hunter Brodie </th>
     <th> Storyboarding </th>
     <th> Task loading.. </th>
+    <th> Task loading.. </th>
   </tr>
   
   <tr>
     <th> Chase Elander </th>
     <th> User Story, Github Management </th>
+    <th> Task loading.. </th>
     <th> Task loading.. </th>
   </tr>
   
@@ -26,11 +28,13 @@
     <th> Conner Mitchell </th>
     <th> Test Cases, Product Owner, Interviewer </th>
     <th> Task loading.. </th>
+    <th> Task loading.. </th>
   </tr>
 
   <tr>
     <th> Jack Long </th>
     <th> User Story, UI Mockups, Scrum Master </th>
+    <th> Task loading.. </th>
     <th> Task loading.. </th>
   </tr>
   
@@ -38,11 +42,13 @@
     <th> Pablo Vielma </th>
     <th> UI Mockups (Digital) </th>
     <th> Task loading.. </th>
+    <th> Task loading.. </th>
   </tr>
   
   <tr>
     <th> Patrick Kitchens </th>
     <th> Test Cases, Research/Interviewer? </th>
+    <th> Task loading.. </th>
     <th> Task loading.. </th>
   </tr>
  
