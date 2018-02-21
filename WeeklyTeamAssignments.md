@@ -59,3 +59,15 @@
 
 </body>
 </html>
+
+### Assignments TO DO:
+* Test cases
+* User stories
+* UI mockups
+* Storyboarding
+* Electing scrum master
+* Write 2-paragraph summary
+* Become familiar with Pivotal Tracker
+* Launch GitHub, add team members, instructor, and TA
+* Starting code
+
