@@ -29,7 +29,7 @@
   
   <tr>
     <th> Conner Mitchell </th>
-    <th> Test Cases, Product Owner, Interviewer </th>
+    <th> Test Cases, Product Owner, Interviewer, Github Page Creator </th>
     <th> Task loading.. </th>
     <th> Task loading.. </th>
   </tr>
