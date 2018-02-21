@@ -12,31 +12,40 @@
   
   <tr>
     <th> Hunter Brodie </th>
-    <th> Chase Elander </th>
-    <th> Conner Mitchell </th>
-    <th> Jack Long </th>
-    <th> Pablo Vielma </th>
-    <th> Patrick Kitchens </th>
-  </tr>
-  
-  <tr>
     <th> Storyboarding </th>
-    <th> User Story, Github Management </th>
-    <th> Test Cases, Research/Interviewer? </th>
-    <th> Test Cases, Product Owner, Interviewer </th>
-    <th> User Story, UI Mockups, Scrum Master </th>
-    <th> UI Mockups (Digital) </th>
+    <th> Task loading.. </th>
   </tr>
   
   <tr>
-    <th> Task loading.. </th>
-    <th> Task loading.. </th>
-    <th> Task loading.. </th>
-    <th> Task loading.. </th>
-    <th> Task loading.. </th>
+    <th> Chase Elander </th>
+    <th> User Story, Github Management </th>
     <th> Task loading.. </th>
   </tr>
   
+  <tr>
+    <th> Conner Mitchell </th>
+    <th> Test Cases, Product Owner, Interviewer </th>
+    <th> Task loading.. </th>
+  </tr>
+
+  <tr>
+    <th> Jack Long </th>
+    <th> User Story, UI Mockups, Scrum Master </th>
+    <th> Task loading.. </th>
+  </tr>
+  
+  <tr>
+    <th> Pablo Vielma </th>
+    <th> UI Mockups (Digital) </th>
+    <th> Task loading.. </th>
+  </tr>
+  
+  <tr>
+    <th> Patrick Kitchens </th>
+    <th> Test Cases, Research/Interviewer? </th>
+    <th> Task loading.. </th>
+  </tr>
+ 
 </table>
 
 </body>
