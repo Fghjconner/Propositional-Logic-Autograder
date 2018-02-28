@@ -10,7 +10,7 @@
     <th>Iteration 0 (Due 2/18/18) </th>
     <th>Iteration 1 (Due X/XX/18) </th>
     <th>Iteration 2 (Due X/XX/18) </th>
-    <th>TIteration 3 (Due X/XX/18) </th>
+    <th>Iteration 3 (Due X/XX/18) </th>
   </tr>
   
   <tr>
