@@ -1,8 +1,7 @@
 # Propositional-Logic-Autograder
 ## Tamu CSCE 431 Project - Propositional Logic Tutor and Autograder Website
 
-Legacy Code recieved on 3/1/18
-
+Legacy Code recieved on 3/1/18 : <https://github.com/victoriaaa234/discrete-math-suite>
 
 **Team Name:** Slightly Used But Mostly Confused
 
