@@ -8,7 +8,7 @@
   <tr>
     <th>Team Member</th>
     <th>Iteration 0 (Due 2/18/18) </th>
-    <th>Iteration 1 (Due X/XX/18) </th>
+    <th>Iteration 1 (Due 3/06/18) </th>
     <th>Iteration 2 (Due X/XX/18) </th>
     <th>Iteration 3 (Due X/XX/18) </th>
   </tr>
