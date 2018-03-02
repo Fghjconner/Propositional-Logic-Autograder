@@ -61,13 +61,11 @@
 </html>
 
 ### Assignments TO DO:
-* Test cases
-* User stories
+* Test cases for Iteration 1
 * UI mockups
 * Storyboarding
-* Electing scrum master
 * Write 2-paragraph summary
-* Become familiar with Pivotal Tracker
-* Launch GitHub, add team members, instructor, and TA
-* Starting code
+* Analyze Legacy Code
+* Refactor Code Structure
+* Get Legacy to Compile
 
