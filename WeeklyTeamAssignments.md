@@ -23,7 +23,7 @@
   <tr>
     <th> Chase Elander </th>
     <th> User Story, Github Management </th>
-    <th> Task loading.. </th>
+    <th> UML Diagram </th>
     <th> Task loading.. </th>
   </tr>
   
@@ -37,7 +37,7 @@
   <tr>
     <th> Jack Long </th>
     <th> User Story, UI Mockups, Scrum Master </th>
-    <th> Task loading.. </th>
+    <th> LaTeX Support </th>
     <th> Task loading.. </th>
   </tr>
   
@@ -51,7 +51,7 @@
   <tr>
     <th> Patrick Kitchens </th>
     <th> Test Cases, Research/Interviewer? </th>
-    <th> Task loading.. </th>
+    <th> User Interface Development. </th>
     <th> Task loading.. </th>
   </tr>
  
