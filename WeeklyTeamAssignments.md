@@ -23,7 +23,7 @@
   <tr>
     <th> Chase Elander </th>
     <th> User Story, Github Management </th>
-    <th> UML Diagram </th>
+    <th> Analyze Legacy Structure </th>
     <th> Task loading.. </th>
   </tr>
   
@@ -60,12 +60,19 @@
 </body>
 </html>
 
-### Assignments TO DO:
+### TO DO:
 * Test cases for Iteration 1
 * UI mockups
 * Storyboarding
 * Write 2-paragraph summary
-* Analyze Legacy Code
+* Analyze Legacy Code Structure
 * Refactor Code Structure
-* Get Legacy to Compile
+* Make List of inherited TODOs
+
+
+### Notes on Legacy Code
+* Languages include Ruby, JavaScript, HTML, CSS, Gherkin, Java, CoffeScript
+* Latest Commit at time of inheritance is 2/26/18
+* Merge Conflicts exist at time of inheritance
+
 
