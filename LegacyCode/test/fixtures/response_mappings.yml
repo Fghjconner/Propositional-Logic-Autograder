@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  local: MyString
-  mapping: MyString
-
-two:
-  local: MyString
-  mapping: MyString

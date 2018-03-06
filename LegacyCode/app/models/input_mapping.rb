@@ -1,2 +1,0 @@
-class InputMapping < ApplicationRecord
-end
