@@ -42,8 +42,11 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
     backports (3.11.1)
+<<<<<<< HEAD
     bcrypt (3.1.11)
     bcrypt (3.1.11-x86-mingw32)
+=======
+>>>>>>> 824d797601b5ddffc8edbf02a22f44e32183e25f
     bindex (0.5.0)
     builder (3.2.3)
     byebug (10.0.0)
@@ -54,10 +57,14 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (>= 2.0, < 4.0)
+<<<<<<< HEAD
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
     cliver (0.3.2)
     coderay (1.1.2)
+=======
+    cliver (0.3.2)
+>>>>>>> 824d797601b5ddffc8edbf02a22f44e32183e25f
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -93,6 +100,7 @@ GEM
     cucumber-wire (0.0.1)
     curb (0.9.4)
     database_cleaner (1.6.2)
+<<<<<<< HEAD
     devise (4.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -111,6 +119,15 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffi (1.9.22)
     ffi (1.9.22-x86-mingw32)
+=======
+    diff-lcs (1.3)
+    erubi (1.7.0)
+    execjs (2.7.0)
+    faraday (0.12.2)
+      multipart-post (>= 1.2, < 3)
+    ffi (1.9.21)
+    ffi (1.9.21-x86-mingw32)
+>>>>>>> 824d797601b5ddffc8edbf02a22f44e32183e25f
     gherkin (5.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -173,7 +190,10 @@ GEM
     omniauth-oauth2 (1.3.1)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
+<<<<<<< HEAD
     orm_adapter (0.5.0)
+=======
+>>>>>>> 824d797601b5ddffc8edbf02a22f44e32183e25f
     pg (0.21.0)
     pg (0.21.0-x86-mingw32)
     phantomjs (2.1.1.0)
@@ -181,9 +201,12 @@ GEM
       capybara (~> 2.1)
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
+<<<<<<< HEAD
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
+=======
+>>>>>>> 824d797601b5ddffc8edbf02a22f44e32183e25f
     public_suffix (3.0.2)
     rack (2.0.4)
     rack-test (0.8.2)
@@ -221,9 +244,12 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     rdoc (4.3.0)
+<<<<<<< HEAD
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+=======
+>>>>>>> 824d797601b5ddffc8edbf02a22f44e32183e25f
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
       rspec-expectations (~> 3.7.0)
@@ -237,8 +263,11 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
+<<<<<<< HEAD
     ruby (0.1.0)
     rubyzip (1.2.1)
+=======
+>>>>>>> 824d797601b5ddffc8edbf02a22f44e32183e25f
     sass (3.5.5)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -253,9 +282,12 @@ GEM
     sdoc (0.4.2)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+<<<<<<< HEAD
     selenium-webdriver (3.9.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
+=======
+>>>>>>> 824d797601b5ddffc8edbf02a22f44e32183e25f
     spring (2.0.2)
       activesupport (>= 4.2)
     sprockets (3.7.1)
@@ -267,8 +299,11 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.3.13)
     sqlite3 (1.3.13-x86-mingw32)
+<<<<<<< HEAD
     sweetalert2 (4.0.11)
       railties (>= 3.1.0)
+=======
+>>>>>>> 824d797601b5ddffc8edbf02a22f44e32183e25f
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
@@ -281,8 +316,11 @@ GEM
       tzinfo (>= 1.0.0)
     uglifier (4.1.6)
       execjs (>= 0.3.0, < 3)
+<<<<<<< HEAD
     warden (1.2.7)
       rack (>= 1.0)
+=======
+>>>>>>> 824d797601b5ddffc8edbf02a22f44e32183e25f
     web-console (3.5.1)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -306,13 +344,17 @@ DEPENDENCIES
   cucumber-rails-training-wheels
   curb
   database_cleaner
+<<<<<<< HEAD
   devise
   devise_lastseenable
   faker (= 1.7.3)
+=======
+>>>>>>> 824d797601b5ddffc8edbf02a22f44e32183e25f
   jasmine-rails
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+<<<<<<< HEAD
   nokogiri
   omniauth-google-oauth2
   pg (~> 0.18)
@@ -328,6 +370,18 @@ DEPENDENCIES
   spring
   sqlite3
   sweetalert2
+=======
+  omniauth-google-oauth2 (~> 0.2.1)
+  pg (~> 0.20)
+  poltergeist
+  rails
+  rails_12factor
+  rspec
+  sass-rails
+  sdoc (~> 0.4.0)
+  spring
+  sqlite3
+>>>>>>> 824d797601b5ddffc8edbf02a22f44e32183e25f
   turbolinks
   tzinfo-data
   uglifier
