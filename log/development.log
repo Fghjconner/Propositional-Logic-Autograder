@@ -202,3 +202,73 @@ Processing by VerifierController#index as HTML
 Completed 200 OK in 458ms (Views: 240.3ms)
 
 
+Started GET "/" for ::1 at 2018-03-06 21:29:37 -0600
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (14.3ms)
+Completed 200 OK in 514ms (Views: 268.8ms)
+
+
+Started GET "/" for ::1 at 2018-03-06 21:30:35 -0600
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (3.9ms)
+Completed 200 OK in 29ms (Views: 25.5ms)
+
+
+Started GET "/" for ::1 at 2018-03-06 21:30:46 -0600
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (5.1ms)
+Completed 200 OK in 37ms (Views: 33.9ms)
+
+
+Started GET "/" for ::1 at 2018-03-06 21:32:41 -0600
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (3.2ms)
+Completed 200 OK in 47ms (Views: 43.5ms)
+
+
+Started GET "/" for ::1 at 2018-03-06 21:33:36 -0600
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (3.0ms)
+Completed 200 OK in 44ms (Views: 41.7ms)
+
+
+Started GET "/" for ::1 at 2018-03-06 21:34:29 -0600
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (3.9ms)
+Completed 200 OK in 44ms (Views: 40.3ms)
+
+
+Started GET "/" for ::1 at 2018-03-06 21:34:42 -0600
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (3.4ms)
+Completed 200 OK in 50ms (Views: 46.4ms)
+
+
+Started GET "/" for ::1 at 2018-03-06 21:35:37 -0600
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (4.8ms)
+Completed 200 OK in 61ms (Views: 57.0ms)
+
+
+Started GET "/" for ::1 at 2018-03-06 21:36:01 -0600
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (5.2ms)
+Completed 200 OK in 69ms (Views: 65.7ms)
+
+
+Started GET "/" for ::1 at 2018-03-06 21:36:50 -0600
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (14.1ms)
+Completed 200 OK in 58ms (Views: 54.2ms)
+
+

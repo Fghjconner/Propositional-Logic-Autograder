@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+ *{
+ 	text-align: center;
+ 	font-family: Arial, Verdana, sans-serif;
+ }
+ h1{
+ 	font-family: Arial, Verdana, sans-serif;
+ }
+table{
+	text-align: left;
+	margin: 0 auto;
+}
