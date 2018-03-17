@@ -1,22 +1,22 @@
 -#  This file is app/views/verifier/index.html.haml
 %h1 Verify proof
 
-= form_tag verify_path, method: "get" do
+= form_with scope: :entry, url: entries_path, local: true do |form| 
   %table
     %tr
       %td
-        = label_tag :f, "Premise"
+        = form.label :premise, "Premise"
       %td
       %td
-        = label_tag :g, "Conclusion"
+        = form.label :conclusion, "Conclusion"
     %tr
       %td
-        = text_field_tag :f
+        = form.text_field :premise
       %td |-
       %td
-        = text_field_tag :g
-  = label_tag :q, "Proof Entry:"
+        = form.text_field :conclusion
+  = form.label :proof, "Proof Entry:"
   %br
-  = text_area_tag :q, nil, cols: 60, rows: 20
+  = form.text_area(:proof, cols: 60, rows: 20)
   %br
   = submit_tag 'Submit'

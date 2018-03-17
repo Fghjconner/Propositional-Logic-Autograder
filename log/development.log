@@ -494,3 +494,379 @@ Completed 200 OK in 490ms (Views: 262.3ms)
   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4100290857088514130)[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2018-03-16 18:53:22 -0500
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (17.2ms)
+Completed 200 OK in 667ms (Views: 313.6ms)
+
+
+Started GET "/" for ::1 at 2018-03-16 18:54:04 -0500
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (4.2ms)
+Completed 200 OK in 32ms (Views: 28.6ms)
+
+
+Started GET "/" for ::1 at 2018-03-17 03:58:52 -0500
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (5.8ms)
+Completed 200 OK in 62ms (Views: 54.5ms)
+
+
+Started GET "/" for ::1 at 2018-03-17 15:23:23 -0500
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (17.8ms)
+Completed 200 OK in 661ms (Views: 278.2ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4100290857088514130)[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateEntries (20180317202706)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (17.6ms)[0m  [1m[35mCREATE TABLE "entries" ("id" bigserial primary key, "premise" character varying, "conclusion" character varying, "proof" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180317202706"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4100290857088514130)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2018-03-17 16:07:43 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (10.5ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/Pablo/Desktop/SE_Project/Propositional-Logic-Autograder/app/views/verifier/index.html.haml:4: syntax error, unexpected ':', expecting keyword_end
+...emp =  form_with scope: @entry:, local: true do |form|
+...                              ^
+/Users/Pablo/Desktop/SE_Project/Propositional-Logic-Autograder/app/views/verifier/index.html.haml:24: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/verifier/index.html.haml:4: syntax error, unexpected ':', expecting keyword_end
+app/views/verifier/index.html.haml:24: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/" for ::1 at 2018-03-17 16:08:37 -0500
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (12.2ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 3, expected 1..2)):
+    17:         = form.text_field :conclusion
+    18:   = form.label :proof, "Proof Entry:"
+    19:   %br
+    20:   = form.text_area :proof, nil, cols: 60, rows: 20
+    21:   %br
+    22:   = submit_tag 'Submit'
+  
+app/views/verifier/index.html.haml:20:in `block in _app_views_verifier_index_html_haml__701660345715926785_70143443925620'
+app/views/verifier/index.html.haml:4:in `_app_views_verifier_index_html_haml__701660345715926785_70143443925620'
+Started GET "/" for ::1 at 2018-03-17 16:11:38 -0500
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (3.7ms)
+Completed 200 OK in 1084ms (Views: 1079.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/" for ::1 at 2018-03-17 16:11:42 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+rack (2.0.4) lib/rack/handler/webrick.rb:86:in `service'
+/Users/Pablo/.rvm/rubies/ruby-2.5.0/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+/Users/Pablo/.rvm/rubies/ruby-2.5.0/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+/Users/Pablo/.rvm/rubies/ruby-2.5.0/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/" for ::1 at 2018-03-17 16:15:26 -0500
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (14.1ms)
+Completed 200 OK in 247ms (Views: 232.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/entries" for ::1 at 2018-03-17 16:15:36 -0500
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for EntriesController):
+  
+actionpack (5.1.5) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.5) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.5) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.5) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.5) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.5) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.0.4) lib/rack/etag.rb:25:in `call'
+rack (2.0.4) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.4) lib/rack/head.rb:12:in `call'
+rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.5) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.5) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+rack (2.0.4) lib/rack/handler/webrick.rb:86:in `service'
+/Users/Pablo/.rvm/rubies/ruby-2.5.0/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+/Users/Pablo/.rvm/rubies/ruby-2.5.0/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+/Users/Pablo/.rvm/rubies/ruby-2.5.0/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/" for ::1 at 2018-03-17 16:17:06 -0500
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (5.2ms)
+Completed 200 OK in 53ms (Views: 48.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-03-17 16:17:06 -0500
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (9.3ms)
+Completed 200 OK in 58ms (Views: 52.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/entries" for ::1 at 2018-03-17 16:17:19 -0500
+Processing by EntriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CQ20AMOp8HdVTTnGS2AVGULV4xpNOAHVgzmVoyaXsaG1bZBQhJF03FwukOP61y5ltIzcxpgWGFHi+2ciGEtwhg==", "entry"=>{"premise"=>"prem", "conclusion"=>"concon"}, "proof"=>"teh proof", "commit"=>"Submit"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-03-17 16:18:07 -0500
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (21.6ms)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `text_area_tag' for #<ActionView::Helpers::FormBuilder:0x00007ff8aca7a1f0>
+Did you mean?  text_area):
+    17:         = form.text_field :conclusion
+    18:   = form.label :proof, "Proof Entry:"
+    19:   %br
+    20:   = form.text_area_tag :proof, nil, cols: 60, rows: 20
+    21:   %br
+    22:   = submit_tag 'Submit'
+  
+app/views/verifier/index.html.haml:20:in `block in _app_views_verifier_index_html_haml__2294219369007079514_70352974246780'
+app/views/verifier/index.html.haml:4:in `_app_views_verifier_index_html_haml__2294219369007079514_70352974246780'
+Started GET "/" for ::1 at 2018-03-17 16:18:08 -0500
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (18.7ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `text_area_tag' for #<ActionView::Helpers::FormBuilder:0x00007ff8ac9425f8>
+Did you mean?  text_area):
+    17:         = form.text_field :conclusion
+    18:   = form.label :proof, "Proof Entry:"
+    19:   %br
+    20:   = form.text_area_tag :proof, nil, cols: 60, rows: 20
+    21:   %br
+    22:   = submit_tag 'Submit'
+  
+app/views/verifier/index.html.haml:20:in `block in _app_views_verifier_index_html_haml__2294219369007079514_70353008771680'
+app/views/verifier/index.html.haml:4:in `_app_views_verifier_index_html_haml__2294219369007079514_70353008771680'
+Started GET "/" for ::1 at 2018-03-17 16:18:51 -0500
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (7.5ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 3, expected 1..2)):
+    17:         = form.text_field :conclusion
+    18:   = form.label :proof, "Proof Entry:"
+    19:   %br
+    20:   = form.text_area :proof, nil, cols: 60, rows: 20
+    21:   %br
+    22:   = submit_tag 'Submit'
+  
+app/views/verifier/index.html.haml:20:in `block in _app_views_verifier_index_html_haml__2294219369007079514_70352970956880'
+app/views/verifier/index.html.haml:4:in `_app_views_verifier_index_html_haml__2294219369007079514_70352970956880'
+Started GET "/" for ::1 at 2018-03-17 16:20:34 -0500
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (11.8ms)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 3, expected 1..2)):
+    17:         = form.text_field :conclusion
+    18:   = form.label :proof, "Proof Entry:"
+    19:   %br
+    20:   = form.text_area(:proof, nil, cols: 60, rows: 20)
+    21:   %br
+    22:   = submit_tag 'Submit'
+  
+app/views/verifier/index.html.haml:20:in `block in _app_views_verifier_index_html_haml__2294219369007079514_70352971464640'
+app/views/verifier/index.html.haml:4:in `_app_views_verifier_index_html_haml__2294219369007079514_70352971464640'
+Started GET "/" for ::1 at 2018-03-17 16:25:12 -0500
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (4.3ms)
+Completed 200 OK in 34ms (Views: 28.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/entries" for ::1 at 2018-03-17 16:25:28 -0500
+Processing by EntriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AoXSyrY7O6v8boXXMeEpf03pgTiuTsVzmWQJQ8MlyMq+5faa8QO/APUNLPKAVhIDu7C+5Htg3Pf4pvvC/fkJ7Q==", "entry"=>{"premise"=>"prem", "conclusion"=>"concon", "proof"=>"teh proofs\r\n"}, "commit"=>"Submit"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-03-17 16:36:37 -0500
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (4.4ms)
+Completed 200 OK in 47ms (Views: 41.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-03-17 16:36:38 -0500
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (3.3ms)
+Completed 200 OK in 27ms (Views: 23.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/entries" for ::1 at 2018-03-17 16:36:57 -0500
+Processing by EntriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cN5T5pGcv6NXRF1Aa06YS9BDyk75rO8Cg9rKbDgRH2LMvne21qQ7CF4n9GXa+aM3Jhr1kiyC9obiGDjtBs3eRQ==", "entry"=>{"premise"=>"premprem", "conclusion"=>"concon", "proof"=>"Le Proof Entry = Acceptable"}, "commit"=>"Submit"}
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 10.4ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/entries_controller.rb:10:in `create'
+Started GET "/" for ::1 at 2018-03-17 16:39:04 -0500
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (4.6ms)
+Completed 200 OK in 43ms (Views: 38.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-03-17 16:39:04 -0500
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (3.6ms)
+Completed 200 OK in 37ms (Views: 34.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/entries" for ::1 at 2018-03-17 16:39:21 -0500
+Processing by EntriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5n4lr1SkjZyOfmrSOgdRPh4NoEZdam4kxdjV6k3LIgRaHgH/E5wJN4cdw/eLsGpC6FSfmohEd6CkGidrcxfjIw==", "entry"=>{"premise"=>"premprem", "conclusion"=>"concon", "proof"=>"Le Proof Entry = Accepted"}, "commit"=>"Submit"}
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `entry_params' for #<EntriesController:0x00007ff8ace7aed0>
+Did you mean?  entry_path):
+  
+app/controllers/entries_controller.rb:10:in `create'
+Started GET "/" for ::1 at 2018-03-17 16:40:00 -0500
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (4.3ms)
+Completed 200 OK in 39ms (Views: 34.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/entries" for ::1 at 2018-03-17 16:40:02 -0500
+Processing by EntriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"P3SwEpud/SHeSeXjWopU7F8y57a8ysykC8ODKRCCyyGDFJRC3KV5itcqTMbrPW+QqWvYamnk1SBqAXGoLl4KBg==", "entry"=>{"premise"=>"premprem", "conclusion"=>"concon", "proof"=>"Le Proof Entry = Accepted"}, "commit"=>"Submit"}
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `entry_params' for #<EntriesController:0x00007ff8acb22288>
+Did you mean?  entry_path):
+  
+app/controllers/entries_controller.rb:10:in `create'
+Started GET "/" for ::1 at 2018-03-17 16:40:10 -0500
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (4.3ms)
+Completed 200 OK in 33ms (Views: 29.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/entries" for ::1 at 2018-03-17 16:40:29 -0500
+Processing by EntriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7a/DBkXFlq4g73r8KO+BiLdYjNgR0StWcHPCfu85cIlRz+dWAv0SBSmM09mZWLr0QQGzBMT/MtIRsTD/0eWxrg==", "entry"=>{"premise"=>"premprem", "conclusion"=>"concon", "proof"=>"Le Proof Entry = Accepted"}, "commit"=>"Submit"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (10.0ms)[0m  [1m[32mINSERT INTO "entries" ("premise", "conclusion", "proof", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["premise", "premprem"], ["conclusion", "concon"], ["proof", "Le Proof Entry = Accepted"], ["created_at", "2018-03-17 21:40:29.998009"], ["updated_at", "2018-03-17 21:40:29.998009"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/entries/1
+Completed 302 Found in 41ms (ActiveRecord: 18.4ms)
+
+
+Started GET "/entries/1" for ::1 at 2018-03-17 16:40:30 -0500
+Processing by EntriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEntry Load (0.6ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering entries/show.html.haml within layouts/application
+  Rendered entries/show.html.haml within layouts/application (3.0ms)
+Completed 200 OK in 74ms (Views: 36.0ms | ActiveRecord: 1.0ms)
+
+
