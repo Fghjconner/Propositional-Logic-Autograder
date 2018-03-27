@@ -494,3 +494,17 @@ Completed 200 OK in 490ms (Views: 262.3ms)
   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4100290857088514130)[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2018-03-27 11:16:53 -0500
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (6.0ms)
+Completed 200 OK in 509ms (Views: 311.7ms)
+
+
+Started GET "/" for ::1 at 2018-03-27 11:16:57 -0500
+Processing by VerifierController#index as HTML
+  Rendering verifier/index.html.haml within layouts/application
+  Rendered verifier/index.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 49ms (Views: 43.8ms)
+
+
