@@ -43,6 +43,8 @@ group :development, :test do
   gem "rspec-rails"
   # Adds simplecov test coverage testing
   gem 'simplecov', require: false
+  # Adds cucumber
+  gem 'cucumber'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
