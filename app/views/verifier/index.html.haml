@@ -1,22 +1,30 @@
 -#  This file is app/views/verifier/index.html.haml
-%h1 Verify proof
+%header
+  %h1 
+    Verify Proof
 
-= form_with scope: :entry, url: entries_path, local: true do |form| 
-  %table
-    %tr
-      %td
-        = form.label :premise, "Premise"
-      %td
-      %td
-        = form.label :conclusion, "Conclusion"
-    %tr
-      %td
-        = form.text_field :premise
-      %td |-
-      %td
-        = form.text_field :conclusion
-  = form.label :proof, "Proof Entry:"
-  %br
-  = form.text_area(:proof, cols: 60, rows: 20)
-  %br
-  = submit_tag 'Submit'
+%body
+  = form_with scope: :entry, url: entries_path, local: true do |form| 
+    %table
+      %tr
+        %td
+          = form.label :premise, "Premise"
+        %td
+        %td
+          = form.label :conclusion, "Conclusion"
+      %tr
+        %td
+          = form.text_field :premise
+        %td |-
+        %td
+          = form.text_field :conclusion
+    = form.label :proof, "Proof Entry:"
+    %br
+    %div.proof
+      = form.text_area :proof
+    %br
+    = submit_tag 'Check Proof'
+
+%footer
+  %p
+    Footer text goes here. Contact Info and other sources will go here.
