@@ -6,13 +6,13 @@ require 'rails_helper'
 
 
 # require 'Engine'
-
+RSpec::Expectations.configuration.on_potential_false_positives = :nothing
 
 RSpec.describe Engine do
 
 	describe "#parse_formula" do
 		it "should be defined" do
-			expect {Engine.parse_formula("A")}.not_to raise_error
+			expect {Engine.parse_formula("A")}.not_to raise_error(NoMethodError)
 		end
 
 		it "should error on empty string" do
@@ -105,7 +105,7 @@ RSpec.describe Engine do
 		end
 
 		it "should be defined" do
-			expect{Engine.parse_line("1 (1) A A", @lines)}.not_to raise_error
+			expect{Engine.parse_line("1 (1) A A", @lines)}.not_to raise_error(NoMethodError)
 		end
 
 		it "should parse assumptions" do
@@ -166,7 +166,7 @@ RSpec.describe Engine do
 			end
 
 			it "should be defined" do
-				expect{Engine::Line.new(9, "A", :assumption, Set[], :itself, nil).valid?}.not_to raise_error
+				expect{Engine::Line.new(9, "A", :assumption, Set[], :itself, nil).valid?}.not_to raise_error(NoMethodError)
 			end
 
 			it "should verify assumptions" do
@@ -206,4 +206,31 @@ RSpec.describe Engine do
 			end
 		end
 	end
+
+	describe "#proof_valid?" do
+		it "should be defined" do
+			expect{Engine.proof_valid?("A", "A", "1  (1)  A  A")}.not_to raise_error(NoMethodError)
+		end
+
+		it "should parse proofs" do
+			expect(Engine.proof_valid?("A", "A", "1  (1)  A  A")).to be_truthy
+			expect(Engine.proof_valid?("PvQ->R, P, F&R->S, F", "S", "1       (1) PvQ->R    A\n2       (2) P         A\n2       (3) PvQ       2vI\n1,2     (4) R         1,3->E\n5       (5) F         A\n1,2,5   (6) F&R      4,5&I\n7       (7) F&R->S   A\n1,2,7,5 (8) S         6,7->E")).to be_truthy
+
+			expect(Engine.proof_valid?("A", "B", "1  (1)  A  A")).to be_falsey
+		end
+	end
 end
+
+# "1       (1) PvQ->R    A\n2       (2) P         A\n2       (3) PvQ       2vI\n1,2     (4) R         1,3->E\n5       (5) F         A\n1,2,5   (6) F&R      4,5&I\n7       (7) F&R->S   A\n1,2,7,5 (8) S         6,7->E"
+# PvQ->R, P, F, F&R->S 
+# S
+
+
+# 1       (1) PvQ->R    A
+# 2       (2) P         A
+# 2       (3) PvQ       2 vI
+# 1,2     (4) R         1,3 ->E
+# 5       (5) F         A
+# 1,2,5   (6) F&R      4,5 &I
+# 7       (7) F&R->S   A
+# 1,2,7,5 (8) S         6,7 ->E

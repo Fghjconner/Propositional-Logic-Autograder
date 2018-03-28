@@ -2,7 +2,21 @@ require 'set'
 
 module Engine
 
-	class Negation
+	class WFF
+		def ==(other)
+			return other.respond_to?(:state) && self.state == other.state
+		end
+
+		def eql?(other)
+			return self.class == other.class && self == other
+		end
+
+		def hash
+			state.hash
+		end
+	end
+
+	class Negation < WFF
 		def initialize(sub)
 			@sub = sub
 		end
@@ -13,16 +27,12 @@ module Engine
 
 		attr_reader :sub
 
-		def ==(other)
-			return self.class == other.class && self.state == other.state
-		end
-
 		def state
 			self.instance_variables.map { |variable| self.instance_variable_get variable }
 		end
 	end
 
-	class Connective
+	class Connective < WFF
 		def initialize(type, sub1, sub2)
 			@type = type
 			@sub1 = sub1
@@ -30,10 +40,6 @@ module Engine
 		end
 
 		attr_reader :type, :sub1, :sub2
-
-		def ==(other)
-			return self.class == other.class && self.state == other.state
-		end
 
 		def state
 			self.instance_variables.map { |variable| self.instance_variable_get variable }
@@ -86,6 +92,10 @@ module Engine
 					self.sources == other.sources &&
 					self_assumptions == other_assumptions &&
 					self.discharged == other.discharged
+		end
+
+		def eql?(other)
+			return self == other
 		end
 
 		def state
@@ -213,5 +223,21 @@ module Engine
 		sources = Set.new(source_list.split(',').map { |i| lines[i.to_i-1]}) #one indexing still sucks
 
 		return Line.new(line_num, conclusion, rule, sources, assumptions, discharged)
+	end
+
+	def self.proof_valid?(premesis, conclusion, proof_string)
+		premesis = Set.new(premesis.split(/\s*,\s*/).map { |prem| parse_formula(prem)})
+		conclusion = parse_formula(conclusion)
+
+		proof = []
+		proof_string.lines.each { |line| proof.push(parse_line(line, proof))}
+
+		assumptions = Set.new(proof[-1].assumptions.map {|line| line.conclusion})
+
+		proof.each { |line| return false unless line.valid?}
+		return false unless assumptions <= premesis
+		return false unless proof[-1].conclusion == conclusion
+
+		return true
 	end
 end
