@@ -1,8 +1,8 @@
 require 'set'
 require 'rails_helper'
 
-require 'simplecov'
-SimpleCov.start
+# require 'simplecov'
+# SimpleCov.start
 
 
 # require 'Engine'
