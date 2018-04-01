@@ -71,7 +71,7 @@ input[type=text] {
     border-radius: 2px;
     text-align: left;
 }
-.proof textarea {
+textarea {
 	background-color: white;
     padding:5px; 
     border:2px solid black; 

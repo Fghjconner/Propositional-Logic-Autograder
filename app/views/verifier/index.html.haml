@@ -4,24 +4,23 @@
     Verify Proof
 
 %body
-  = form_with scope: :entry, url: entries_path, local: true do |form| 
+  = form_tag verify_path, method: "get" do
     %table
       %tr
         %td
-          = form.label :premise, "Premise"
+          = label_tag :premise, "Premise"
         %td
         %td
-          = form.label :conclusion, "Conclusion"
+          = label_tag :conclusion, "Conclusion"
       %tr
         %td
-          = form.text_field :premise
+          = text_field_tag :premise
         %td |-
         %td
-          = form.text_field :conclusion
-    = form.label :proof, "Proof Entry:"
+          = text_field_tag :conclusion
+    = label_tag :proof, "Proof Entry:"
     %br
-    %div.proof
-      = form.text_area :proof
+    = text_area_tag :proof
     %br
     = submit_tag 'Check Proof'
 

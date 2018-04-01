@@ -1,11 +1,18 @@
-require 'app/controllers/entries_controller.rb'
 require 'set'
+require 'rails_helper'
 
-describe Engine do
+# require 'simplecov'
+# SimpleCov.start
+
+
+# require 'Engine'
+RSpec::Expectations.configuration.on_potential_false_positives = :nothing
+
+RSpec.describe Engine do
 
 	describe "#parse_formula" do
 		it "should be defined" do
-			expect {Engine.parse_formula("A")}.not_to raise_error
+			expect {Engine.parse_formula("A")}.not_to raise_error(NoMethodError)
 		end
 
 		it "should error on empty string" do
@@ -98,7 +105,7 @@ describe Engine do
 		end
 
 		it "should be defined" do
-			expect{Engine.parse_line("1 (1) A A", @lines)}.not_to raise_error
+			expect{Engine.parse_line("1 (1) A A", @lines)}.not_to raise_error(NoMethodError)
 		end
 
 		it "should parse assumptions" do
@@ -141,4 +148,89 @@ describe Engine do
 			expect(Engine.parse_line("1    ( 9)    A        1,5 RAA (5)", @lines)).to eq(Engine::Line.new(9, "A", :reductio, Set[@lines[0], @lines[4]], @lines[0], @lines[4]))
 		end
 	end
+
+	describe Engine::Line do
+		describe "#valid?" do
+			before(:all) do
+				@lines = [
+					Engine::Line.new(1, "A", :assumption, Set[], :itself, nil),
+					Engine::Line.new(2, "B", :assumption, Set[], :itself, nil),
+					Engine::Line.new(3, Engine.parse_formula("A&B"), :assumption, Set[], :itself, nil),
+					Engine::Line.new(4, Engine.parse_formula("AvB"), :assumption, Set[], :itself, nil),
+					Engine::Line.new(5, Engine.parse_formula("~A"), :assumption, Set[], :itself, nil),
+					Engine::Line.new(6, Engine.parse_formula("A->B"), :assumption, Set[], :itself, nil)
+				]
+
+				source = Set[@lines[0], @lines[1]]
+				@lines << Engine::Line.new(7, Engine.parse_formula("A&B"), :amp_intro, source, source, nil)
+			end
+
+			it "should be defined" do
+				expect{Engine::Line.new(9, "A", :assumption, Set[], :itself, nil).valid?}.not_to raise_error(NoMethodError)
+			end
+
+			it "should verify assumptions" do
+				expect(Engine::Line.new(9, "A", :assumption, Set[], :itself, nil).valid?).to be_truthy
+				expect(Engine::Line.new(9, "A", :assumption, Set[], Set[], nil).valid?).to be_falsey
+			end
+
+			it "should verify ampersand introduction" do
+				source = Set[@lines[0], @lines[1]]
+				expect(Engine::Line.new(9, Engine.parse_formula("A&B"), :amp_intro, source, source, nil).valid?).to be_truthy
+			end
+
+			it "should verify ampersand elimination" do
+				expect(Engine::Line.new(9, "A", :amp_elim, @lines[2], @lines[2], nil).valid?).to be_truthy
+			end
+
+			it "should verify wedge introduction" do
+				expect(Engine::Line.new(9, Engine.parse_formula("AvZ"), :wedge_intro, @lines[0], @lines[0], nil).valid?).to be_truthy
+			end
+
+			it "should verify wedge elimination" do
+				source = Set[@lines[3], @lines[4]]
+				expect(Engine::Line.new(9, "B", :wedge_elim, source, source, nil).valid?).to be_truthy
+			end
+
+			it "should verify arrow introduction" do
+				expect(Engine::Line.new(9, Engine.parse_formula("A->A&B"), :arrow_intro, @lines[6], @lines[1], @lines[0]).valid?).to be_truthy
+			end
+
+			it "should verify arrow elimination" do
+				source = Set[@lines[0], @lines[5]]
+				expect(Engine::Line.new(9, "B", :arrow_elim, source, source, nil).valid?).to be_truthy
+			end
+
+			it "should verify reductio ad absurdum" do
+				expect(Engine::Line.new(9, "A", :reductio, Set[@lines[0], @lines[4]], @lines[0], @lines[4]).valid?).to be_truthy
+			end
+		end
+	end
+
+	describe "#proof_valid?" do
+		it "should be defined" do
+			expect{Engine.proof_valid?("A", "A", "1  (1)  A  A")}.not_to raise_error(NoMethodError)
+		end
+
+		it "should parse proofs" do
+			expect(Engine.proof_valid?("A", "A", "1  (1)  A  A")).to be_truthy
+			expect(Engine.proof_valid?("PvQ->R, P, F&R->S, F", "S", "1       (1) PvQ->R    A\n2       (2) P         A\n2       (3) PvQ       2vI\n1,2     (4) R         1,3->E\n5       (5) F         A\n1,2,5   (6) F&R      4,5&I\n7       (7) F&R->S   A\n1,2,7,5 (8) S         6,7->E")).to be_truthy
+
+			expect(Engine.proof_valid?("A", "B", "1  (1)  A  A")).to be_falsey
+		end
+	end
 end
+
+# "1       (1) PvQ->R    A\n2       (2) P         A\n2       (3) PvQ       2vI\n1,2     (4) R         1,3->E\n5       (5) F         A\n1,2,5   (6) F&R      4,5&I\n7       (7) F&R->S   A\n1,2,7,5 (8) S         6,7->E"
+# PvQ->R, P, F, F&R->S 
+# S
+
+
+# 1       (1) PvQ->R    A
+# 2       (2) P         A
+# 2       (3) PvQ       2 vI
+# 1,2     (4) R         1,3 ->E
+# 5       (5) F         A
+# 1,2,5   (6) F&R      4,5 &I
+# 7       (7) F&R->S   A
+# 1,2,7,5 (8) S         6,7 ->E
