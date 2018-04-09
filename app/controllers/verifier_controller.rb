@@ -13,7 +13,7 @@ class VerifierController < ApplicationController
     			@response = "Bad"
     		end
     	rescue
-    		@response = "Invalid Entry"
+    		@response = "Ugly"
     	end
     end
 end
