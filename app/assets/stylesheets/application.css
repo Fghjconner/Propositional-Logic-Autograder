@@ -13,39 +13,9 @@
  *= require_tree .
  *= require_self
  */
-*{
-	text-align: center;
-}
-html{
-	text-align: center;
-	font-family: Arial, Verdana, sans-serif;
-	background-color: rgb(230,235,250);
-}
-header{
-	left: 0;
-	top: 0;
-	font-family: Arial, Verdana, sans-serif;
-	background-color: rgb(50,50,100);
-	border-bottom: 5px solid rgb(180,180,255);
-	color: white;
-	margin: 0 auto;
-	padding: 0;
-	margin-top: 0;
-	margin-bottom: 20px;
-}
-h1{
-	padding: .5em;
-	margin: 0 auto;
-}
-footer{
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	background-color: black;
-	color: white;
-	font-size: .9em;
-}
+
+
+
 table{
 	text-align: left;
 	margin: 0 auto;
@@ -86,15 +56,15 @@ textarea {
 }
 input[type=text]:focus {
 	outline: none;
-    border-color:rgb(100,120,200);
-    -webkit-box-shadow: 0px 0px 4px rgb(100,120,200);
-       -moz-box-shadow: 0px 0px 4px rgb(100,120,200);
-            box-shadow: 0px 0px 4px rgb(100,120,200);
+    border-color:rgb(211,211,211);
+    -webkit-box-shadow: 0px 0px 4px rgb(211,211,211);
+       -moz-box-shadow: 0px 0px 4px rgb(211,211,211);
+            box-shadow: 0px 0px 4px rgb(211,211,211);
 }
 textarea:focus {
 	outline: none;
-    border-color:rgb(100,120,200);
-    -webkit-box-shadow: 0px 0px 6px rgb(100,120,200);
-       -moz-box-shadow: 0px 0px 6px rgb(100,120,200);
-            box-shadow: 0px 0px 6px rgb(100,120,200);
+    border-color:rgb(211,211,211);
+    -webkit-box-shadow: 0px 0px 6px rgb(211,211,211);
+       -moz-box-shadow: 0px 0px 6px rgb(211,211,211);
+            box-shadow: 0px 0px 6px rgb(211,211,211);
 }
