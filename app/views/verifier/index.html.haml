@@ -1,12 +1,12 @@
 -#  This file is app/views/verifier/index.html.haml
 %header
-  %h1 
+  %h1(class="checkerTitle")
     Verify Proof
 
 %body
   = form_tag verify_path, method: "get" do
     %table
-      %tr
+      %tr(class="labels")
         %td
           = label_tag :premise, "Premise"
         %td
@@ -15,7 +15,7 @@
       %tr
         %td
           = text_field_tag :premise
-        %td ⊢
+        %td(class="mid") ⊢
         %td
           = text_field_tag :conclusion
     = label_tag :proof, "Proof Entry:"

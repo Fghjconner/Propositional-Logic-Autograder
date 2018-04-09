@@ -8,12 +8,12 @@ class VerifierController < ApplicationController
     def show
     	begin
     		if Engine.proof_valid?(params[:premise], params[:conclusion], params[:proof])
-    			@response = "Good"
+    			@response = "Correct!"
     		else
-    			@response = "Bad"
+    			@response = "You have logic errors."
     		end
     	rescue
-    		@response = "Ugly"
+    		@response = "You have syntax errors."
     	end
     end
 end

@@ -15,20 +15,34 @@
  */
 
 
-
+.homeTitle{
+	padding-bottom: .5em;
+}
+.homeButtons a{
+	border-radius: 3px;
+	margin: .5em;
+	margin-bottom: .8em;
+	font-size: 1em;
+	width: 180px;
+}
+.checkerTitle{
+	padding-bottom: .5em;
+}
 table{
 	text-align: left;
 	margin: 0 auto;
 	margin-bottom: 20px;
 }
 input[type=submit] {
-    padding:5px 15px; 
-    font-size: 1em;
+	margin-top: 5px;
+    padding:5px 20px; 
+    font-size: 1.2em;
     background:rgb(100,120,240); 
+    color: black;
     border:0 none;
     cursor:pointer;
-    -webkit-border-radius: 5px;
-    border-radius: 5px; 
+    -webkit-border-radius: 2px;
+    border-radius: 2px; 
 }
 input[type=submit]:hover {
     background:rgb(160,180,255); 
@@ -67,4 +81,10 @@ textarea:focus {
     -webkit-box-shadow: 0px 0px 6px rgb(211,211,211);
        -moz-box-shadow: 0px 0px 6px rgb(211,211,211);
             box-shadow: 0px 0px 6px rgb(211,211,211);
+}
+.mid{
+	padding: 10px;
+}
+.labels{
+	text-align: center;
 }
