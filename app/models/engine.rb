@@ -2,6 +2,14 @@ require 'set'
 
 module Engine
 
+	class ParseError < StandardError
+		def initialize(msg, line)
+			@line = line
+			super(msg)
+		end
+		attr_accessor :line
+	end
+
 	class WFF
 		def ==(other)
 			return other.respond_to?(:state) && self.state == other.state
@@ -226,11 +234,28 @@ module Engine
 	end
 
 	def self.proof_valid?(premesis, conclusion, proof_string)
-		premesis = Set.new(premesis.split(/\s*,\s*/).map { |prem| parse_formula(prem)})
-		conclusion = parse_formula(conclusion)
+		premesis = Set.new(premesis.split(/\s*,\s*/).map { |prem|
+			begin
+				parse_formula(prem)
+			rescue => e
+				raise ParseError.new("Could not parse premise \"#{prem}\": " + e.msg, 0)
+			end
+		})
+
+		begin
+			conclusion = parse_formula(conclusion)
+		rescue => e
+			raise ParseError.new("Could not parse conclusion: " + e.msg, 0)
+		end
 
 		proof = []
-		proof_string.lines.each { |line| proof.push(parse_line(line, proof))}
+		proof_string.lines.each_with_index { |line, i|
+			begin
+				proof.push(parse_line(line, proof))
+			rescue => e
+				raise ParseError.new("Could not parse proof line #{i}: " + e.msg, i)
+			end
+		}
 
 		assumptions = Set.new(proof[-1].assumptions.map {|line| line.conclusion})
 
