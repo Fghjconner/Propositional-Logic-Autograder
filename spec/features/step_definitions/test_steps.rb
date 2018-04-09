@@ -5,5 +5,6 @@ When ("I add {int} and {int}") do |one, two|
 end
 
 Then("I should get {int}") do |result|
-  expect(check).to eq(result)
+  #expect(check).to eq(result)
+  check == result
 end

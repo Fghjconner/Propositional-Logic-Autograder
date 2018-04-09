@@ -1,7 +1,8 @@
 Feature: Engine
   Test the engine module to see that everything works properly
   
-  Scenario: Parse letter
-    When I parse the letter A
-    Then I should see A
+  Scenario: To google
+    When I go to google
+    And I search for cheese
+    Then I should see cheese
     
