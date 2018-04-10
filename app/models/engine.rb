@@ -2,14 +2,14 @@ require 'set'
 
 module Engine
 
-	class ParseError < StandardError
-		def initialize(message, line)
+	class FormulaError < StandardError
+		def initialize(message, formula, line=nil)
+			@formula = formula
 			@line = line
 			super(message)
 		end
-		def line
-			@line
-		end
+		
+		attr_accessor :line, :formula
 	end
 
 	class WFF
@@ -193,7 +193,12 @@ module Engine
 		parts = string.split
 
 		line_num = parts[1][1..-2].to_i
-		conclusion = parse_formula(parts[2])
+
+		begin
+			conclusion = parse_formula(parts[2])
+		rescue => e
+			raise FormulaError.new("Could not parse formula: " + e.message, parts[2])
+		end
 
 		assumptions = Set.new(parts[0].split(',').map { |i| i.to_i == line_num ? :itself : lines[i.to_i-1]}) #One indexing sucks! (also handle assumptions relying on themselves)
 
@@ -240,14 +245,14 @@ module Engine
 			begin
 				parse_formula(prem)
 			rescue => e
-				raise ParseError.new("Could not parse premise \"#{prem}\": " + e.message, 0)
+				raise FormulaError.new("Could not parse premise: " + e.message, prem)
 			end
 		})
 
 		begin
 			conclusion = parse_formula(conclusion)
 		rescue => e
-			raise ParseError.new("Could not parse conclusion: " + e.message, 0)
+			raise FormulaError.new("Could not parse conclusion: " + e.message, conclusion)
 		end
 
 		proof = []
@@ -255,7 +260,10 @@ module Engine
 			begin
 				proof.push(parse_line(line, proof))
 			rescue => e
-				raise ParseError.new("Could not parse proof line #{i}: " + e.message, i)
+				if e.respond_to?(:line=)
+					e.line = (i+1)
+				end
+				raise e
 			end
 		}
 

@@ -35,6 +35,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Haml as the templating library
 gem 'haml'
 
+# Apperently fixes bug with css
+gem 'coffee-script-source', '1.8.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

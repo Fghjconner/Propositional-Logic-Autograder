@@ -14,16 +14,19 @@
           = label_tag :conclusion, "Conclusion"
       %tr
         %td
-          = text_field_tag :premise
+          = text_field_tag :premise, @premise_prefill
         %td(class="mid") ⊢
         %td
-          = text_field_tag :conclusion
+          = text_field_tag :conclusion, @conclusion_prefill
     = label_tag :proof, "Proof Entry:"
     %br
-    = text_area_tag :proof
+    = text_area_tag :proof, @proof_prefill
     %br
     = submit_tag 'Check Proof'
   %h2
     = @response
-    %p
-      = @wut
+    - if @error
+      %p
+        = @error_message
+        %br
+        = @line
