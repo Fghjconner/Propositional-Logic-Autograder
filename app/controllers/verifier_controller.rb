@@ -12,8 +12,9 @@ class VerifierController < ApplicationController
     		else
     			@response = "You have logic errors."
     		end
-    	rescue
-    		@response = "You have syntax errors."
+    	rescue => e
+            @response = "You have syntax errors."
+            @wut = e.message + " | Line no: " 
     	end
     end
 end
