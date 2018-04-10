@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PropositionalLogicAutograder</title>
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+       <title>Propositional Logic Autograder</title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
   </head>
-
   <body>
-    <%= yield %>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "Logic Grader", home_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home",   home_path %></li>
+		<li><%= link_to "Proof Checker", verifier_path %></li>
+		<li><%= link_to "Quiz", quiz_path %></li>
+        <li><%= link_to "Help",   help_path %></li>
+        <li><%= link_to "Log in", '#' %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="container center">
+      <%= yield %>
+	  <footer class="footer">
+  <small>
+    Slightly Used But Mostly Confused
+  </small>
+  <nav>
+    <ul>
+      <li><%= link_to "About",   about_path %></li>
+      <li><%= link_to "Contact", contact_path %></li>
+    </ul>
+  </nav>
+</footer>
+    </div>
   </body>
 </html>

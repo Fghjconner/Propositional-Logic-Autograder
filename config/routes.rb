@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
-    root 'verifier#index'
+
+  get 'quiz', to: 'static#quiz'
+
+  get 'home', to: 'static#home'
+  get 'help', to: 'static#help' 
+
+  get 'about', to: 'static#about' 
+
+  get 'contact', to: 'static#contact' 
+
+    root 'static#home'
     
     get 'verifier', to: 'verifier#index'
     get 'verify', to: 'verifier#show'

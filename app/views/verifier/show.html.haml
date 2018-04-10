@@ -1,7 +1,29 @@
 -#  This file is app/views/verifier/show.html.haml
 %header
-  %h1 
+  %h1(class="checkerTitle")
     Verify Proof
 
 %body
-  %h1= @response
+  = form_tag verify_path, method: "get" do
+    %table
+      %tr(class="labels")
+        %td
+          = label_tag :premise, "Premise"
+        %td
+        %td
+          = label_tag :conclusion, "Conclusion"
+      %tr
+        %td
+          = text_field_tag :premise
+        %td(class="mid") ⊢
+        %td
+          = text_field_tag :conclusion
+    = label_tag :proof, "Proof Entry:"
+    %br
+    = text_area_tag :proof
+    %br
+    = submit_tag 'Check Proof'
+  %h2
+    = @response
+    %p
+      = @wut

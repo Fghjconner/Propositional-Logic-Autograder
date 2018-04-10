@@ -3,11 +3,13 @@ require 'set'
 module Engine
 
 	class ParseError < StandardError
-		def initialize(msg, line)
+		def initialize(message, line)
 			@line = line
-			super(msg)
+			super(message)
 		end
-		attr_accessor :line
+		def line
+			@line
+		end
 	end
 
 	class WFF
@@ -238,14 +240,14 @@ module Engine
 			begin
 				parse_formula(prem)
 			rescue => e
-				raise ParseError.new("Could not parse premise \"#{prem}\": " + e.msg, 0)
+				raise ParseError.new("Could not parse premise \"#{prem}\": " + e.message, 0)
 			end
 		})
 
 		begin
 			conclusion = parse_formula(conclusion)
 		rescue => e
-			raise ParseError.new("Could not parse conclusion: " + e.msg, 0)
+			raise ParseError.new("Could not parse conclusion: " + e.message, 0)
 		end
 
 		proof = []
@@ -253,7 +255,7 @@ module Engine
 			begin
 				proof.push(parse_line(line, proof))
 			rescue => e
-				raise ParseError.new("Could not parse proof line #{i}: " + e.msg, i)
+				raise ParseError.new("Could not parse proof line #{i}: " + e.message, i)
 			end
 		}
 
