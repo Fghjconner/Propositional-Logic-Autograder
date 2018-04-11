@@ -6,4 +6,7 @@ Feature: Test
     When I add 1 and 2
     Then I should get 3
   
-  
+  Scenario: To google
+    When I go to google
+    And I search for cheese
+    Then I should see cheese

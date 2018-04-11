@@ -9,7 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
 # Use postgres as the database for Active Record
-gem 'pg'
+#gem 'pg'
 # Use Puma as the app server
 # gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -47,6 +47,7 @@ group :development, :test do
   gem 'cucumber'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
+  # Adds the selenium-webdriver which helps testing websites
   gem 'selenium-webdriver'
 end
 
