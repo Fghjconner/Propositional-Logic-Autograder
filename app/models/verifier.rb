@@ -41,6 +41,43 @@ module Verifier
 
 		return true
 	end
+	
+		#########################################
+	###
+	###
+	###
+
+	def self.verify_demorgan line
+		#Check sources
+		return false unless line.sources.size == 2
+
+		#Check assumptions
+		assumptions = Set[]
+		line.sources.each{ | source | assumptions |= source.assumptions}
+		return false unless line.assumptions == assumptions
+
+		sources = line.sources.to_a
+		source1 = sources[0].conclusion
+		source2 = sources[1].conclusion
+
+		#check discharge
+		return false unless line.discharged == nil
+
+		#check conclusion
+		if source1.type == :disjunction
+			if Engine::denial?(source1.sub1, source2) and source1.sub2 == line.conclusion
+				return true
+			end
+		elsif source2.type == :disjunction
+			if Engine::denial?(source2.sub1, source1) and source2.sub2 == line.conclusion
+				return true
+			end
+		end
+		return false
+			
+	end
+
+	##########
 
 	def self.verify_amp_elim line
 		# Check sources
