@@ -232,7 +232,7 @@ module Engine
 			source_list = $1
 			discharged = lines[$2.to_i-1]
 		else
-			raise "Unable to parse annotation"
+			raise FormulaError.new("Could not parse proof.", parts[3])
 		end
 
 		sources = Set.new(source_list.split(',').map { |i| lines[i.to_i-1]}) #one indexing still sucks
