@@ -6,14 +6,24 @@ class VerifierController < ApplicationController
     end
     
     def show
+        @premise_prefill = params[:premise]
+        @conclusion_prefill = params[:conclusion]
+        @proof_prefill = params[:proof]
+
+
     	begin
+            @error = false
     		if Engine.proof_valid?(params[:premise], params[:conclusion], params[:proof])
-    			@response = "Good"
+    			@response = "Correct!"
     		else
-    			@response = "Bad"
+    			@response = "You have logic errors."
     		end
-    	rescue
-    		@response = "Ugly"
+    	rescue => e
+            @error = true
+
+            @response = "You have syntax errors."
+            @error_message = e.message + (e.line ? " | on line " + e.line.to_s : "")
+            @line = e.formula
     	end
     end
 end

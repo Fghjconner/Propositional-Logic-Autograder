@@ -2,6 +2,16 @@ require 'set'
 
 module Engine
 
+	class FormulaError < StandardError
+		def initialize(message, formula, line=nil)
+			@formula = formula
+			@line = line
+			super(message)
+		end
+		
+		attr_accessor :line, :formula
+	end
+
 	class WFF
 		def ==(other)
 			return other.respond_to?(:state) && self.state == other.state
@@ -183,7 +193,12 @@ module Engine
 		parts = string.split
 
 		line_num = parts[1][1..-2].to_i
-		conclusion = parse_formula(parts[2])
+
+		begin
+			conclusion = parse_formula(parts[2])
+		rescue => e
+			raise FormulaError.new("Could not parse formula: " + e.message, parts[2])
+		end
 
 		assumptions = Set.new(parts[0].split(',').map { |i| i.to_i == line_num ? :itself : lines[i.to_i-1]}) #One indexing sucks! (also handle assumptions relying on themselves)
 
@@ -217,7 +232,7 @@ module Engine
 			source_list = $1
 			discharged = lines[$2.to_i-1]
 		else
-			raise "Unable to parse annotation"
+			raise FormulaError.new("Could not parse proof.", parts[3])
 		end
 
 		sources = Set.new(source_list.split(',').map { |i| lines[i.to_i-1]}) #one indexing still sucks
@@ -226,11 +241,31 @@ module Engine
 	end
 
 	def self.proof_valid?(premesis, conclusion, proof_string)
-		premesis = Set.new(premesis.split(/\s*,\s*/).map { |prem| parse_formula(prem)})
-		conclusion = parse_formula(conclusion)
+		premesis = Set.new(premesis.split(/\s*,\s*/).map { |prem|
+			begin
+				parse_formula(prem)
+			rescue => e
+				raise FormulaError.new("Could not parse premise: " + e.message, prem)
+			end
+		})
+
+		begin
+			conclusion = parse_formula(conclusion)
+		rescue => e
+			raise FormulaError.new("Could not parse conclusion: " + e.message, conclusion)
+		end
 
 		proof = []
-		proof_string.lines.each { |line| proof.push(parse_line(line, proof))}
+		proof_string.lines.each_with_index { |line, i|
+			begin
+				proof.push(parse_line(line, proof))
+			rescue => e
+				if e.respond_to?(:line=)
+					e.line = (i+1)
+				end
+				raise e
+			end
+		}
 
 		assumptions = Set.new(proof[-1].assumptions.map {|line| line.conclusion})
 
