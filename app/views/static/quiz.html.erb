@@ -1,2 +1,23 @@
-<h1>Quiz</h1>
-<p>Isn't life really just one big quiz?</p>
+<div class = "quiz">
+	<h1>Quiz</h1>
+	<p>Isn't life really just one big quiz?</p>
+	<h3>Let's Begin</h3>
+	<%= form_tag({}, {:method => :get}) do %>
+		<ol class = "question_list">
+			<% for @item in @all_questions %>
+				<div class = "question_box">
+					<li class = "question">
+						<h4><%= @item.question %></h4>
+						<p><%= label_tag :response, "Answer: "%>
+						<%= text_field_tag :response%></p>
+						<p>
+							<%= @result %>
+						</p>
+					</li>
+				</div>
+			<% end %>
+		</ol>
+
+	    <%= submit_tag 'Submit Answers'%>
+    <%end%>
+</div>
