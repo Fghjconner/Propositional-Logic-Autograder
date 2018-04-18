@@ -11,8 +11,10 @@ module Static
 		attr_accessor :question, :answer, :type
 
 		def verdict(response)
-			if response == :answer
+			if response == answer
 				return "Correct!"
+			elsif response == ""
+				return ""
 			else
 				return "Incorrect."
 			end
