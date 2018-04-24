@@ -1,0 +1,16 @@
+<h1>Listing Questions</h1>
+ 
+<table>
+  <tr>
+    <th>Question:</th>
+    <th>Answer:</th>
+    <th></th>
+  </tr>
+ 
+  <% @questions.each do |question| %>
+    <tr>
+      <td><%= question.text %></td>
+      <td><%= question.answer %></td>
+    </tr>
+  <% end %>
+</table>

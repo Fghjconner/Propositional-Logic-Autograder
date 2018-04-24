@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get 'contact', to: 'static#contact' 
 
+  resources :questions
+
     root 'static#home'
     
     get 'verifier', to: 'verifier#index'

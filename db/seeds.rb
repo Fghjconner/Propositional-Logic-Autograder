@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+questions = [{:text => 'Why?', :answer => 'yes'},
+		{:text => 'Why2?', :answer => 'no'},
+  	 ]
+
+questions.each do |question|
+  Question.create!(question)
+end
