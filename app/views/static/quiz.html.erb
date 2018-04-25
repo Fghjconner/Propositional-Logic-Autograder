@@ -3,22 +3,17 @@
 	<h3>Let's Begin</h3>
 	<%= form_tag({}, {:method => :get}) do %>
 		<ol class = "question_list">
-			<% i = 0 %>
 			<% @questions.each do |question| %>
 				<div class = "question_box">
 					<li class = "question">
 						<h4><%= question.text %></h4>
-						<p><%= label_tag :response, "Answer: "%>
-						<%= text_field_tag label_tag :response%></p>
+						<p><%= label_tag '#{@question.response}', "Answer: "%>
+						<%= text_field_tag  '#{@question.response}' %></p>
 						<p>
 							<%= question.result(question.response) %>
 						</p>
-						<p>
-							<%= question.response %>
-						</p>
 					</li>
 				</div>
-				<% i = i + 1 %>
 			<% end %>
 		</ol>
 
