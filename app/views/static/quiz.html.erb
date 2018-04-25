@@ -7,8 +7,8 @@
 				<div class = "question_box">
 					<li class = "question">
 						<h4><%= question.text %></h4>
-						<p><%= label_tag '#{@question.response}', "Answer: "%>
-						<%= text_field_tag  '#{@question.response}' %></p>
+						<p><%= label_tag 'who[]', "Answer: "%>
+						<%= text_field_tag  'who[]' %></p>
 						<p>
 							<%= question.result(question.response) %>
 						</p>
