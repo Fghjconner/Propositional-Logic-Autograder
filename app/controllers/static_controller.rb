@@ -1,14 +1,15 @@
 class StaticController < ApplicationController
   def quiz
-  	@all_questions = Static.proof_questions + Static.mc_questions
+	@questions = Question.all
 
-
-  	for question in @all_questions
-		if params[:response]
-			@result = question.verdict(params[:response])
-		else
-			@result = ""
+	i = 0
+  	@questions.each do |question|
+  		if i == 0
+	  		question.response = "yes"
+  		else
+  			question.response = "no"
 		end
+  		i = i + 1
 	end
 
   end
