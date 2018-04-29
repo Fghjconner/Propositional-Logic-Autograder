@@ -15,15 +15,35 @@
  */
 
 /*Questions List Editor*/
-.questions_edit_all tr{
-    margin: 10px;
-    padding-bottom: 10px;
-    border: solid 1px black;
+table {
+  table-layout: fixed;
+}
+a.button{
+    padding: 10px;
+    color: black;
+    background-color: rgb(120,120,255);
+    border-radius: 2px;
+}
+a:hover.button{
+    background-color: rgb(170,180,255);
+    text-decoration: none;
+}
+.questions_edit_all .button{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.questions_edit_all{
+    padding-top: 10px;
+    margin-top: 20px;
 }
 
-tr.questions_edit td{
+.questions_edit_all td, .questions_edit_all th{
     margin: 10px;
     padding: 10px;
+}
+td.button_space{
+    padding-left: 0;
+    margin-left: 0;
 }
 
  /*QUIZ STYLE*/
@@ -52,6 +72,9 @@ li.question{
 p.message {
   font-size: .7em;
   margin: 1em;
+}
+h1{
+    padding-bottom: .5em;
 }
 .homeTitle{
     padding-bottom: .5em;

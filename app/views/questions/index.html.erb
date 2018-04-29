@@ -1,6 +1,7 @@
-<h1>Listing Questions</h1>
+<h1>Questions List</h1>
  
-  <%= link_to 'Add New', new_question_path %>
+  <%= link_to 'Add New', new_question_path, :class => 'button'%>
+
 <table class="questions_edit_all">
 
   <tr class = 'questions_edit_top'>
@@ -13,8 +14,8 @@
     <tr class = 'questions_edit'>
       <td><%= question.text %></td>
       <td><%= question.answer %></td>
-      <td><%= link_to 'Edit', edit_question_path(question) %></td>
-      <td><%= link_to 'Delete', question_path(question), method: :delete, data: { confirm: 'Are you sure?'} %></td>
+      <td><%= link_to 'Edit', edit_question_path(question), :class => 'button' %></td>
+      <td class = 'button_space'><%= link_to 'Delete', question_path(question), method: :delete, data: { confirm: 'Are you sure?'}, :class => 'button' %></td>
     </tr>
   <% end %>
 </table>
