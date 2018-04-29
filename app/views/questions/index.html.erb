@@ -1,16 +1,20 @@
 <h1>Listing Questions</h1>
  
-<table>
-  <tr>
+  <%= link_to 'Add New', new_question_path %>
+<table class="questions_edit_all">
+
+  <tr class = 'questions_edit_top'>
     <th>Question:</th>
     <th>Answer:</th>
     <th></th>
   </tr>
  
   <% @questions.each do |question| %>
-    <tr>
+    <tr class = 'questions_edit'>
       <td><%= question.text %></td>
       <td><%= question.answer %></td>
+      <td><%= link_to 'Edit', edit_question_path(question) %></td>
+      <td><%= link_to 'Delete', question_path(question), method: :delete, data: { confirm: 'Are you sure?'} %></td>
     </tr>
   <% end %>
 </table>
