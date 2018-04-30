@@ -14,7 +14,68 @@
  *= require_self
  */
 
+/*Questions List Editor*/
+table {
+  table-layout: fixed;
+}
+a.button{
+    padding: 10px;
+    color: black;
+    background-color: rgb(120,120,255);
+    border-radius: 2px;
+}
+a:hover.button{
+    background-color: rgb(170,180,255);
+    text-decoration: none;
+}
+.questions_edit_all .button{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.questions_edit_all{
+    padding-top: 10px;
+    margin-top: 20px;
+}
 
+.questions_edit_all td, .questions_edit_all th{
+    margin: 10px;
+    padding: 10px;
+}
+td.button_space{
+    padding-left: 0;
+    margin-left: 0;
+}
+
+ /*QUIZ STYLE*/
+ol.question_list{
+    margin: 0 auto;
+    width: 800px;
+    padding: 10px;
+}
+.question_box{
+    background-color: rgb(200,200,255);;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 3px;
+    padding-left: 20px;
+}
+.question_box p{
+    margin: 0 auto;
+    text-align: center;
+}
+li.question{
+    text-align: left;
+    font-size: 1.3em;
+    margin: 10px;
+}
+/*VERIFIER + EVERYTHING ELSE NOT IN CUSTOM STYLE*/
+p.message {
+  font-size: .7em;
+  margin: 1em;
+}
+h1{
+    padding-bottom: .5em;
+}
 .homeTitle{
     padding-bottom: .5em;
 }
