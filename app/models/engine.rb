@@ -281,7 +281,8 @@ module Engine
 
 		proof.each_with_index { |line, i|
 			unless line.valid?
-				raise ProofError.new("Invalid proof, line #{i+1} does not follow", proof_string.lines[i])
+				line_num = i + 1
+				raise ProofError.new("Invalid proof, line #{line_num} does not follow", proof_string.lines[i])
 			end
 		}
 		return false unless assumptions <= premesis
