@@ -7,11 +7,26 @@
 				<div class = "question_box">
 					<li class = "question">
 						<h4><%= question.text %></h4>
-						<p><%= label_tag 'who[]', "Answer: "%>
-						<%= text_field_tag  'who[]' %></p>
-						<p>
-							<%= question.result(question.response) %>
-						</p>
+						<% if question.answer == "[:enter proof:]" %>
+							<p><%= label_tag 'who[]', "Enter Proof: "%>
+							<%= text_area_tag  'who[]' %></p>
+							<p>
+								<%= question.res_string %>
+								<%if question.error %>
+									<p>
+										<%=question.err_message%>
+										<br>
+										<%=question.line_no%>
+									</p>
+								<%end%>
+							</p>
+						<% else %>
+							<p><%= label_tag 'who[]', "Answer: "%>
+							<%= text_field_tag  'who[]' %></p>
+							<p>
+								<%= question.result(question.response) %>
+							</p>
+						<%end%>
 					</li>
 				</div>
 			<% end %>
