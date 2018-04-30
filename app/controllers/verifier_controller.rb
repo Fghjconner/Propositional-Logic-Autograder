@@ -15,13 +15,11 @@ class VerifierController < ApplicationController
             @error = false
     		if Engine.proof_valid?(params[:premise], params[:conclusion], params[:proof])
     			@response = "Correct!"
-    		else
-    			@response = "You have logic errors."
     		end
     	rescue => e
             @error = true
 
-            @response = "You have syntax errors."
+            @response = "Proof is not correct"
             @error_message = e.message + (e.line ? " | on line " + e.line.to_s : "")
             @line = e.formula
     	end

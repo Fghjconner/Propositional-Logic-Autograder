@@ -11,6 +11,16 @@ module Engine
 		
 		attr_accessor :line, :formula
 	end
+	
+	class ProofError < StandardError
+		def initialize(message, formula, line=nil)
+			@formula = formula
+			@line = line
+			super(message)
+		end
+		
+		attr_accessor :line, :formula
+	end
 
 	class WFF
 		def ==(other)
@@ -269,7 +279,11 @@ module Engine
 
 		assumptions = Set.new(proof[-1].assumptions.map {|line| line.conclusion})
 
-		proof.each { |line| return false unless line.valid?}
+		proof.each_with_index { |line, i|
+			unless line.valid?
+				raise ProofError.new("Invalid proof, line #{i} does not follow", line)
+			end
+		}
 		return false unless assumptions <= premesis
 		return false unless proof[-1].conclusion == conclusion
 
