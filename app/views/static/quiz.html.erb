@@ -3,13 +3,14 @@
 	<h3>Let's Begin</h3>
 	<%= form_tag({}, {:method => :get}) do %>
 		<ol class = "question_list">
+			<%i=0%>
 			<% @questions.each do |question| %>
 				<div class = "question_box">
 					<li class = "question">
 						<h4><%= question.text %></h4>
 						<% if question.answer == "[:enter proof:]" %>
 							<p><%= label_tag 'who[]', "Enter Proof: "%>
-							<%= text_area_tag  'who[]' %></p>
+							<%= text_area_tag  'who[]',@answer_prefill[i] %></p>
 							<p>
 								<%= question.res_string %>
 								<%if question.error %>
@@ -22,13 +23,14 @@
 							</p>
 						<% else %>
 							<p><%= label_tag 'who[]', "Answer: "%>
-							<%= text_field_tag  'who[]' %></p>
+							<%= text_field_tag  'who[]',@answer_prefill[i] %></p>
 							<p>
 								<%= question.result(question.response) %>
 							</p>
 						<%end%>
 					</li>
 				</div>
+				<%i=i+1%>
 			<% end %>
 		</ol>
 

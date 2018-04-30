@@ -1,6 +1,7 @@
 class StaticController < ApplicationController
   def quiz
 	@questions = Question.all
+	@answer_prefill = params[:who]
 	if params["who"]
 		i = 0
 	  	@questions.each do |question|
