@@ -7,7 +7,6 @@ module Verifier
 	# Check conclusion
 	# Check discharge
 
-
 	def self.verify_assumption line
 		# Check sources
 		return false unless line.sources.empty?
