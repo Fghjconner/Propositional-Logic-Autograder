@@ -27,7 +27,7 @@ class StaticController < ApplicationController
 				rescue => e
 			        question.error = true
 
-			        question.res_string = "You have syntax errors."
+			        question.res_string = "Error found."
 			        question.err_message = e.message + (e.line ? " | on line " + e.line.to_s : "")
 			        question.line_no = e.formula
 			        question.response = "wrong"
