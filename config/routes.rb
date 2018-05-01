@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'about', to: 'static#about' 
 
   get 'contact', to: 'static#contact' 
+  get '/404', to: 'errors#not_found'
+  get '/500', to: 'errors#server_error'
 
   resources :questions
 
