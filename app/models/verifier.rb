@@ -41,26 +41,14 @@ module Verifier
 		return true
 	end
 	
-		#########################################
-	###
-	###
-	###
-
+######
 	def self.verify_demorgan line
 		#Check sources
-		return false unless line.sources.size == 2
+		return false unless line.sources.size == 1
 
-		#Check assumptions
-		assumptions = Set[]
-		line.sources.each{ | source | assumptions |= source.assumptions}
-		return false unless line.assumptions == assumptions
-
-		sources = line.sources.to_a
+		source = line.sources.to_a[0]
 		source1 = sources[0].conclusion
 		source2 = sources[1].conclusion
-
-		#check discharge
-		return false unless line.discharged == nil
 
 		#check conclusion
 		if source1.type == :disjunction
@@ -75,8 +63,7 @@ module Verifier
 		return false
 			
 	end
-
-	##########
+######
 
 	def self.verify_amp_elim line
 		# Check sources
