@@ -53,6 +53,8 @@ RSpec.describe Engine do
 		it "should parse nested negations" do
 			expect(Engine.parse_formula("(~(~A))")).to eq(Engine::Negation.new(Engine::Negation.new("A")))
 			expect(Engine.parse_formula("~~A")).to eq(Engine::Negation.new(Engine::Negation.new("A")))
+			#expect(Engine.parse_formula("~(A)")).to eq(Engine::Negation.new("A"))
+			# TODO:  necessary?
 		end
 
 		it "should parse conjunctions" do
@@ -87,6 +89,11 @@ RSpec.describe Engine do
 			expect(Engine.parse_formula("((((A&(~B)))->(C)))")).to eq(Engine::Connective.new(:conditional, Engine::Connective.new(:conjunction, "A", Engine::Negation.new("B")), "C"))
 			expect(Engine.parse_formula("((A<->(((((~B))vC))->D)))")).to eq(Engine::Connective.new(:biconditional, "A", Engine::Connective.new(:conditional, Engine::Connective.new(:disjunction, Engine::Negation.new("B"), "C"), "D")))
 		end
+		
+		it "should handle demorgans" do
+			expect(Engine.parse_formula("~(AvB)->~A&~B")).to eq(Engine::Connective.new(:conditional, Engine::Negation.new(:disjunction, "A","B"), Engine::Connective.new(:conjuction, Engine::Negation.new("A"), Engine::Negation.new("B"))))		
+		end
+		#TODO necessary?
 	end
 
 	describe "#parse_line" do
@@ -142,6 +149,10 @@ RSpec.describe Engine do
 
 		it "should parse reductio ad absurdum" do
 			expect(Engine.parse_line("1 (9) A 1,5RAA(5)", @lines)).to eq(Engine::Line.new(9, "A", :reductio, Set[@lines[0], @lines[4]], @lines[0], @lines[4]))
+		end
+		
+		it "should parse demorgan" do
+			expect(Engine.parse_line("1 (9) ~(AvB), DM (9)", @lines)).to eq(Engine::Line.new(9, Engine.parse_formula("~(AvB)->~A&~B")),:demorgan, @lines[0], @lines[1], @lines[0])
 		end
 
 		it "should handle weird spacing" do
@@ -203,6 +214,10 @@ RSpec.describe Engine do
 
 			it "should verify reductio ad absurdum" do
 				expect(Engine::Line.new(9, "A", :reductio, Set[@lines[0], @lines[4]], @lines[0], @lines[4]).valid?).to be_truthy
+			end
+			
+			it "should verify demorgan" do
+				expect(Engine::Line.new(9, Engine.parse_formula("~(AvB)->~A&~B"), :demorgan, Set[@lines[1], @lines[0]], @lines[1], @lines[0]).valid?).to be_truthy
 			end
 		end
 	end
