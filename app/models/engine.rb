@@ -241,6 +241,10 @@ module Engine
 			rule = :reductio
 			source_list = $1
 			discharged = lines[$2.to_i-1]
+		when /^(\d+(?:,\d+)*)\((\d+)\)$/ # Need to correct the Lambda Expression
+			rule = :demorgan
+			source_list = $1
+			discharged = lines[$2.to_i-1]
 		else
 			raise FormulaError.new("Could not parse proof.", parts[3])
 		end
